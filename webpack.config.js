@@ -2,9 +2,9 @@ const webpack = require('webpack');
 const path = require('path');
 
 const config = {
-  entry: './client/src/index.js',
+  entry: './src/index.js',
   output: {
-    path: path.resolve(__dirname, '/client/dist'),
+    path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js'
   },
   module: {
@@ -30,7 +30,7 @@ const config = {
     ]
   },
   devServer: {
-    contentBase: './client/dist'
+    contentBase: './dist'
   }
 }
 
