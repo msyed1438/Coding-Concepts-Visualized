@@ -11,8 +11,8 @@ app.use(parser.json());
 app.use(cors());
 app.use('/', express.static(path.join(__dirname, './../client/dist')))
 
-app.use('/hotels/:hotelId', express.static(path.join(__dirname, './../client/dist')))
 app.use(morgan('dev'));
+
 
 
 
