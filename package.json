@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/msyed1438/Coding-Concepts-Visualized#readme",
   "dependencies": {
+    "aws-sdk": "^2.504.0",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",

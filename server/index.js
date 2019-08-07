@@ -5,8 +5,17 @@ const parser = require('body-parser');
 const morgan = require('morgan');
 const cors = require('cors');
 const fs = require('fs');
-const readline = require('readline');
 const request = require('request');
+const AWS = require('aws-sdk');
+const { accessKey, secretkey } = require('./awsConfig');
+
+
+AWS.config.update({
+    accessKeyId: accessKey,
+    secretAccessKey: secretkey
+});
+
+var s3 = new AWS.S3();
 
 
 app.use(parser.json());
