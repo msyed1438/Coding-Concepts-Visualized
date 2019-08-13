@@ -1,6 +1,8 @@
-var x = 'value'
-var y = x;
-x = 'new value';
-console.log(y);
+         var x = 'value'
+             var y = x;
+      x = 'new value';
+               console.log(y);
 y = 'another new value';
-console.log(y);
+          console.log(y);
+
+          
