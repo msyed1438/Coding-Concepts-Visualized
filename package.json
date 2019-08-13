@@ -6,9 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rm dist/bundle.js",
-    "build-dev": "webpack -d --mode development",
+    "build-dev": "webpack -d -w --mode development",
     "build-prod": "webpack -p --mode production",
-    "start": "webpack-dev-server --hot --mode development"
+    "start": "webpack-dev-server --hot --mode development",
+    "server-dev": "nodemon server/index.js"
   },
   "repository": {
     "type": "git",
@@ -22,11 +23,14 @@
   "homepage": "https://github.com/msyed1438/Coding-Concepts-Visualized#readme",
   "dependencies": {
     "aws-sdk": "^2.504.0",
+    "axios": "^0.19.0",
     "body-parser": "^1.19.0",
+    "bootstrap": "^4.3.1",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "morgan": "^1.9.1",
     "react": "^16.8.6",
+    "react-bootstrap": "^1.0.0-beta.10",
     "react-dom": "^16.8.6",
     "react-hot-loader": "^4.12.10",
     "request": "^2.88.0"
