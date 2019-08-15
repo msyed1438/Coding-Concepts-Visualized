@@ -9,7 +9,9 @@ class ChunkSelector extends Component {
         super(props);
         this.state = {
             snippets: [],
-            starting: 'First part of chunk'
+            isPickingInitialPartOfChunk: true,
+            firstIndexOfChunk: null,
+            lastIndexOChunk: null
         }
     }
 
@@ -19,13 +21,32 @@ class ChunkSelector extends Component {
         })
     }
 
+    handleClick(event) {
+        event.preventDefault();
+        this.setState({
+            isPickingInitialPartOfChunk: !(this.state.isPickingInitialPartOfChunk)
+        }, () => {
+            if (!this.state.isPickingInitialPartOfChunk) {
+                
+            }
+        });
+    }
+
     render() {
         console.log('These are the props that ChunkSelector component is getting: ', this.props)
         return (
             <Container>
                 <h4>Please group your lines of code!</h4>  
                 {this.state.snippets.map((snippet, index) => {
-                    return (<Row key={index}><pre>{snippet}</pre> <Button>{this.state.starting}</Button> </Row>)
+                    return (
+                    <Row 
+                        key={index} 
+                        id={index} 
+                        className="border justify-content-between"
+                    > 
+                        <pre>{snippet}</pre> <Button onClick={this.handleClick.bind(this)}>{this.state.isPickingInitialPartOfChunk ? 'First part of chunk' : 'Last part of chunk'}</Button> 
+                    </Row>
+                    )
                 })}
             </Container>
         );
