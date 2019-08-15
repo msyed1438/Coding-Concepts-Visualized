@@ -4,5 +4,3 @@
                console.log(y);
 y = 'another new value';
           console.log(y);
-
-          
