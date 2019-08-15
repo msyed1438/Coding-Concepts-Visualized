@@ -16,7 +16,7 @@ class FileFetcher extends Component {
             placeholder: 'Paste your link here',
             codeSnippets: [],
             isShowingSnippets: false
-        }
+        }  
     }
 
     handleUrlSubmissionButtonClick(event) {
@@ -27,10 +27,14 @@ class FileFetcher extends Component {
                 this.setState({
                     codeSnippets: data,
                     isShowingSnippets: true
+                }, ()=> {
+                    
                 });
             })
             .catch((err) => {
-                console.log('There was an error: ', err);
+                this.setState({
+                    placeholder: `Try again! ${err}`
+                })
             })
 
     }
@@ -42,11 +46,11 @@ class FileFetcher extends Component {
 
     render() {
 
-
         return (
-            <Container>
+            <Container className="">
+                <h1>Coding Visualizer!</h1>
                 <Jumbotron>
-                    <h1> File Fetcher </h1>
+                    <h3> File Fetcher </h3>
                     <p> Here's a file fetcher! Paste in any raw file URL to get it split into lines</p>
                     <p> For example: https://raw.githubusercontent.com/msyed1438/Coding-Concepts-Visualized/master/samples/example.js</p>
                 </Jumbotron>
@@ -66,10 +70,15 @@ class FileFetcher extends Component {
                         onClick={this.handleUrlSubmissionButtonClick.bind(this)} 
                     > Submit! </Button>
                 </Form>
-                {this.state.isShowingSnippets ? <CodingSnippets snippets={this.state.codeSnippets} /> : null}
+                {this.state.isShowingSnippets 
+                    ? <CodingSnippets 
+                        snippets={this.state.codeSnippets} 
+                        onTransitionToChunkSelection={this.props.onTransitionToChunkSelection}
+                        /> 
+                    : null}
             </Container>
-
         );
+
     }
 }
 
