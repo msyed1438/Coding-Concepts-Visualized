@@ -28,10 +28,13 @@ class App extends Component {
         
         if (this.state.isShowingFetcher) {
             return (
+                <>
+                <h1 className="text-center">Coding Visualizer!</h1>
                 <FileFetcher 
                     onTransitionToChunkSelection={this.handleTransitionToChunkSelection}
                     handleSnippetsData={this.populateSnippets}    
                 />
+                </>
             );
         }
 

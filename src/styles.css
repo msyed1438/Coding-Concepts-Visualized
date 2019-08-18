@@ -1,10 +1,4 @@
-/* body {
-  color: white;
-  background-color: black;
-} */
-
-/* 
-img.uploadIcon {
-  content:url('./upload.svg') !important;
-} */
+.white-space-pre {
+  white-space: pre-wrap;
+}
 

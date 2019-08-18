@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
+import Highlight from 'react-highlight'
+
 
 class CodingSnippets extends Component {
     constructor(props) {

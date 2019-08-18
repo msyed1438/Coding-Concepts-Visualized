@@ -48,7 +48,6 @@ class FileFetcher extends Component {
 
         return (
             <Container className="">
-                <h1>Coding Visualizer!</h1>
                 <Jumbotron>
                     <h3> File Fetcher </h3>
                     <p> Here's a file fetcher! Paste in any raw file URL to get it split into lines</p>
