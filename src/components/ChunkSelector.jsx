@@ -3,7 +3,6 @@ import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import Chunk from './Chunk';
-import Highlight from 'react-highlight'
 
 
 class ChunkSelector extends Component {
@@ -15,20 +14,21 @@ class ChunkSelector extends Component {
             snippets: [],
             isPickingInitialPartOfChunk: true,
             firstIndexOfChunk: null,
-            lastIndexOChunk: null
-        }
+            lastIndexOfChunk: null
+        };
         this.reset = this.reset.bind(this);
-        this.onResetClick = this.onResetClick.bind(this);
+        this.handleResetClick = this.handleResetClick.bind(this);
         this.handleChunkCreation = this.handleChunkCreation.bind(this);
+        this.handleChunkClick = this.handleChunkClick.bind(this);
     }
 
     reset() {
         this.setState({
             snippets: this.state.originalSnippets
-        })
+        });
     }
 
-    onResetClick(event) {
+    handleResetClick(event) {
         event.preventDefault();
         this.reset();
     }
@@ -37,29 +37,37 @@ class ChunkSelector extends Component {
         this.setState({
             originalSnippets: this.props.codeSnippets,
             snippets: this.props.codeSnippets
-        })
+        });
     }
 
     
 
-    // handleClick() {
-    //     this.setState({
-    //         isPickingInitialPartOfChunk: !(this.state.isPickingInitialPartOfChunk),
-    //         firstIndexOfChunk: null
-    //     })
-    // }
+    handleChunkClick(index) {
+        if (this.state.isPickingInitialPartOfChunk) {
+            this.setState({
+                isPickingInitialPartOfChunk: !(this.state.isPickingInitialPartOfChunk),
+                firstIndexOfChunk: index
+            })
+        } else {
+            this.setState({
+                isPickingInitialPartOfChunk: !(this.state.isPickingInitialPartOfChunk),
+                lastIndexOfChunk: index
+            }, () => {this.handleChunkCreation(this.state.firstIndexOfChunk, this.state.lastIndexOfChunk)});
+        }
+    }
 
 
-    handleChunkCreation(event, startIndex, endIndex) {
-        event.preventDefault();
-        let copyOfOriginalChunks = this.state.snippets.slice();
+    handleChunkCreation(startIndex, endIndex) {
+        let newChunks = this.state.snippets.slice();
         let lengthOfChunkToBeDeleted = (endIndex - startIndex) + 1;
         console.log('stringify',startIndex);
-        let chunkToInsert = copyOfOriginalChunks.slice(startIndex, endIndex + 1).join('\n');
-        copyOfOriginalChunks.splice(startIndex, lengthOfChunkToBeDeleted, chunkToInsert);
+        let chunkToInsert = newChunks.slice(startIndex, endIndex + 1).join('\n');
+        newChunks.splice(startIndex, lengthOfChunkToBeDeleted, chunkToInsert);
         
         this.setState({
-            snippets: copyOfOriginalChunks
+            snippets: newChunks,
+            startIndex: null,
+            endIndex: null
         })
     }   
 
@@ -68,23 +76,16 @@ class ChunkSelector extends Component {
             
             <Container>
                 <h4>Group your lines of code!</h4> 
-                <p> Reset selections? <Button variant='warning' onClick={this.handleChunkCreation}>Reset</Button></p>
-
+                <p> Reset selections? <Button variant='warning' onClick={this.handleResetClick}>Reset</Button></p>
                 {this.state.snippets.map((snippet, index) => {
                     return (
-                    // <Row 
-                    //     key={index} 
-                    //     id={index} 
-                    //     className="border justify-content-between"
-                    // > 
-                    //     <pre>{snippet}</pre> <Button onClick={this.handleClick.bind(this)}>{this.state.isPickingInitialPartOfChunk ? 'First part of chunk' : 'Last part of chunk'}</Button> 
-                    // </Row> //TODO: Refactor this Row into a new component that sends up the clicked index (via this.props.id)
                         <Chunk 
                             key={index}
                             id={index}
                             className="border justify-content-between"
                             snippet={snippet}
                             isPickingInitialPartOfChunk={this.state.isPickingInitialPartOfChunk}
+                            handleChunkClick={this.handleChunkClick}
                         />
                     )
                 })}
