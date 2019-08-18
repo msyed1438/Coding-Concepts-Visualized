@@ -50,14 +50,14 @@ class ChunkSelector extends Component {
     // }
 
 
-    handleChunkCreation(startIndex, endIndex, joinBy = '\n') {
-
+    handleChunkCreation(event, startIndex = 0, endIndex = 3, joinBy = '\n') {
+        event.preventDefault();
         let copyOfOriginalChunks = this.state.snippets.slice();
-        let lengthOfChunkToBeDeleted = endIndex - startIndex + 1;
+        let lengthOfChunkToBeDeleted = (endIndex - startIndex) + 1;
+        console.log('stringify',startIndex);
         let chunkToInsert = copyOfOriginalChunks.slice(startIndex, endIndex + 1).join(joinBy);
-
         copyOfOriginalChunks.splice(startIndex, lengthOfChunkToBeDeleted, chunkToInsert);
-
+        
         this.setState({
             snippets: copyOfOriginalChunks
         })
