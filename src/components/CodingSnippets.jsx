@@ -30,14 +30,14 @@ class CodingSnippets extends Component {
             <Container>
                 <div>
                     <h4>Here's the file that you searched for!</h4>
-                    <h6>Would you like to confirm this selection? 
+                    <h4>Would you like to confirm this selection? 
                         <Button 
                             variant="success" 
                             onClick={this.handleConfirmClick.bind(this)}
                         >
                              Confirm 
                         </Button>
-                    </h6> 
+                    </h4> 
                     {this.props.snippets.map((snippet, index) => {
                         return <Row key={index}><pre>{snippet}</pre></Row>
                     })}

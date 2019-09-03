@@ -60,7 +60,6 @@ class ChunkSelector extends Component {
     handleChunkCreation(startIndex, endIndex) {
         let newChunks = this.state.snippets.slice();
         let lengthOfChunkToBeDeleted = (endIndex - startIndex) + 1;
-        console.log('stringify',startIndex);
         let chunkToInsert = newChunks.slice(startIndex, endIndex + 1).join('\n');
         newChunks.splice(startIndex, lengthOfChunkToBeDeleted, chunkToInsert);
         
@@ -89,6 +88,7 @@ class ChunkSelector extends Component {
                         />
                     )
                 })}
+                <Button variant="warning" onClick={() => {}}>Confirm your chunk selections</Button>
             </Container>
         );
     }

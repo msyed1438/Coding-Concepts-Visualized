@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import FileFetcher from './FileFetcher';
 import ChunkSelector from './ChunkSelector';
-import ImageUploader from './ImageUploader';
+// import ImageUploader from './ImageUploader';
+import S3Uploader from './S3Uploader';
 
 class App extends Component {
     constructor(props) {
@@ -10,21 +11,32 @@ class App extends Component {
             isShowingFetcher: true,
             isShowingChunkSelection: false,
             isShowingPhotoUploader: false,
-            codeSnippets: []
+            codeSnippets: [],
+            newChunkedCodeSnippets: []
         }
         this.handleTransitionToChunkSelection = this.handleTransitionToChunkSelection.bind(this);
+        this.handleTransitionToPhotoSelection = this.handleTransitionToPhotoSelection.bind(this);
     }
 
     handleTransitionToChunkSelection(data) {
-        console.log('On handleTransitionToChunkSelection (called from App.jsx), this is the data', data);
         this.setState({
             isShowingChunkSelection: true,
             isShowingFetcher: false,
             codeSnippets: data
         })
     }
+
+    handleTransitionToPhotoSelection(data) {
+        this.setState({
+            isShowingChunkSelection: false,
+            isShowingPhotoUploader: true,
+            
+        })
+    }
     
     render() {
+
+        return <S3Uploader />
         
         if (this.state.isShowingFetcher) {
             return (
@@ -46,7 +58,7 @@ class App extends Component {
 
         if (this.state.isShowingChunkSelection) {
             return (
-                <ImageUploader />
+                <S3Uploader />
             )
         }
     }
