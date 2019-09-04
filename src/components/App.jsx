@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import FileFetcher from './FileFetcher';
 import ChunkSelector from './ChunkSelector';
 // import ImageUploader from './ImageUploader';
-import S3Uploader from './S3Uploader';
+import ChunkPhotoLinker from './ChunkPhotoLinker';
 
 class App extends Component {
     constructor(props) {
@@ -28,15 +28,16 @@ class App extends Component {
 
     handleTransitionToPhotoSelection(data) {
         this.setState({
+            newChunkedCodeSnippets: data,
             isShowingChunkSelection: false,
             isShowingPhotoUploader: true,
-            
         })
     }
     
     render() {
-
-        return <S3Uploader />
+        
+        // return <S3Uploader />
+        
         
         if (this.state.isShowingFetcher) {
             return (
@@ -44,7 +45,6 @@ class App extends Component {
                 <h1 className="text-center">Coding Visualizer!</h1>
                 <FileFetcher 
                     onTransitionToChunkSelection={this.handleTransitionToChunkSelection}
-                    handleSnippetsData={this.populateSnippets}    
                 />
                 </>
             );
@@ -52,15 +52,20 @@ class App extends Component {
 
         if (this.state.isShowingChunkSelection) {
             return (
-                <ChunkSelector codeSnippets={this.state.codeSnippets}/>
+                <ChunkSelector 
+                    codeSnippets={this.state.codeSnippets}
+                    onTransitionToPhotoSelection={this.handleTransitionToPhotoSelection}
+                />
             )
         }
 
-        if (this.state.isShowingChunkSelection) {
+        if (this.state.isShowingPhotoUploader) {
             return (
-                <S3Uploader />
+                <ChunkPhotoLinker chunkedSnippets={this.state.newChunkedCodeSnippets}/>
             )
         }
+
+    
     }
 }
 

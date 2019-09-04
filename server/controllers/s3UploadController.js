@@ -10,7 +10,6 @@ AWS.config.update({
 });
 
 const S3_BUCKET = 'code-concept-photos'
-console.log('We got here, also here are the access key:  ', accessKey, ' and the secret key: ', secretKey);
 
 
 exports.sign_s3 = (req,res) => {

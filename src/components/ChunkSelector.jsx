@@ -20,6 +20,8 @@ class ChunkSelector extends Component {
         this.handleResetClick = this.handleResetClick.bind(this);
         this.handleChunkCreation = this.handleChunkCreation.bind(this);
         this.handleChunkClick = this.handleChunkClick.bind(this);
+        this.handleConfirmClick = this.handleConfirmClick.bind(this);
+
     }
 
     reset() {
@@ -56,6 +58,11 @@ class ChunkSelector extends Component {
         }
     }
 
+    handleConfirmClick(event) {
+        event.preventDefault();
+        this.props.onTransitionToPhotoSelection(this.state.snippets);
+    }
+
 
     handleChunkCreation(startIndex, endIndex) {
         let newChunks = this.state.snippets.slice();
@@ -88,7 +95,7 @@ class ChunkSelector extends Component {
                         />
                     )
                 })}
-                <Button variant="warning" onClick={() => {}}>Confirm your chunk selections</Button>
+                <Button variant="warning" onClick={this.handleConfirmClick}> Confirm your chunk selections </Button>
             </Container>
         );
     }

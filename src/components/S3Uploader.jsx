@@ -25,13 +25,14 @@ class S3Uploader extends Component {
     let fileType = fileParts[1];
     console.log("Preparing the upload");
     console.log('Here are the files: ', file);
-    axios.post("/sign_s3",{
+    axios.post("/sign_s3", {
       fileName : fileName,
       fileType : fileType
     })
     .then(response => {
-      console.log('We got here');
+      console.log('Response from sign_s3 endpoint: ', response)
       var returnData = response.data.data.returnData;
+      console.log('This is the returnData: ', returnData);
       var signedRequest = returnData.signedRequest;
       var url = returnData.url;
       this.setState({url: url})
@@ -40,7 +41,7 @@ class S3Uploader extends Component {
      // Put the fileType in the headers for the upload
       var options = {
         headers: {
-          // 'Content-Type': fileType,
+          'Content-Type': fileType
           // 'x-amz-acl': 'public-read'
         }
       };
@@ -63,7 +64,7 @@ class S3Uploader extends Component {
   
   render() {
     const Success_message = () => (
-      <div style={{padding:50}}>
+      <div style={{padding:20}}>
         <h3 style={{color: 'green'}}>SUCCESSFUL UPLOAD</h3>
         <a href={this.state.url}>Access the file here</a>
         <br/>
@@ -71,13 +72,11 @@ class S3Uploader extends Component {
     )
     return (
       <div className="S3Uploader">
-        <center>
-          <h1>UPLOAD A FILE</h1>
+        <div>
           {this.state.success ? <Success_message/> : null}
           <input onChange={this.handleChange} ref={(ref) => { this.uploadInput = ref; }} type="file"/>
-          <br/>
           <button onClick={this.handleUpload}>UPLOAD</button>
-        </center>
+        </div>
       </div> 
     );
   }
