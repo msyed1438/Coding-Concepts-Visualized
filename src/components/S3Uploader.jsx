@@ -47,12 +47,10 @@ class S3Uploader extends Component {
       };
       axios.put(signedRequest,file,options)
       .then(result => {
-        console.log("Response from s3")
         this.setState({success: true});
+        this.props.handlePhotoUpload(this.props.index, this.state.url);
       })
       .catch(error => {
-        console.error('This is the error: ', error);
-        console.log('THis is the error: ', JSON.stringify(error));
         alert("ERROR " + JSON.stringify(error));
       })
     })
@@ -61,21 +59,18 @@ class S3Uploader extends Component {
     })
   }
   
-  
+ 
   render() {
     const Success_message = () => (
-      <div style={{padding:20}}>
-        <h3 style={{color: 'green'}}>SUCCESSFUL UPLOAD</h3>
-        <a href={this.state.url}>Access the file here</a>
-        <br/>
-      </div>
+        <text style={{color: 'green'}}>SUCCESSFUL UPLOAD</text>
     )
+
     return (
       <div className="S3Uploader">
         <div>
-          {this.state.success ? <Success_message/> : null}
           <input onChange={this.handleChange} ref={(ref) => { this.uploadInput = ref; }} type="file"/>
-          <button onClick={this.handleUpload}>UPLOAD</button>
+          <button onClick={this.handleUpload} disabled={this.state.success}>{this.state.success ? <Success_message/> : "UPLOAD"}</button>
+          {/* {this.state.success ? <Success_message/> : UPLOAD} */}
         </div>
       </div> 
     );

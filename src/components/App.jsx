@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import FileFetcher from './FileFetcher';
 import ChunkSelector from './ChunkSelector';
-// import ImageUploader from './ImageUploader';
 import ChunkPhotoLinker from './ChunkPhotoLinker';
+// import S3Uploader from './S3Uploader';
 
 class App extends Component {
     constructor(props) {
