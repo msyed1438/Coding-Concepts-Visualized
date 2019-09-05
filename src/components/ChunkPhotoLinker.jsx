@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Container from 'react-bootstrap/Container';
-import S3Uploader from './S3Uploader';
 import ChunkWithPhotoUpload from './ChunkWithPhotoUpload';
+
 
 class ChunkPhotoLinker extends Component {
     constructor(props) {
@@ -55,6 +55,7 @@ class ChunkPhotoLinker extends Component {
     render() {
         return (
             <Container>
+                <h4>Select the images from your device to link with each chunk of code</h4> 
                 {this.state.chunksWithPhotos.map((chunkWithPhoto, index) => {
                     return (
                         <ChunkWithPhotoUpload 

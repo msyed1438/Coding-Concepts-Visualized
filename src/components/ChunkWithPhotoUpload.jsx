@@ -5,7 +5,7 @@ import S3Uploader from './S3Uploader';
 class ChunkWithPhotoUpload extends Component {
     render() {
         return (
-            <Row>
+            <Row className="border justify-content-between">
                 <pre>{this.props.chunkWithPhoto.chunk}</pre>
                 <S3Uploader
                     index={this.props.index} 

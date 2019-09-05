@@ -62,7 +62,7 @@ class S3Uploader extends Component {
  
   render() {
     const Success_message = () => (
-        <text style={{color: 'green'}}>SUCCESSFUL UPLOAD</text>
+        <div style={{color: 'green'}}>SUCCESSFUL UPLOAD</div>
     )
 
     return (
