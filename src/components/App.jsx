@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import FileFetcher from './FileFetcher';
 import ChunkSelector from './ChunkSelector';
 import ChunkPhotoLinker from './ChunkPhotoLinker';
-// import S3Uploader from './S3Uploader';
+import ChunksWithPopupPhotos from './ChunksWithPopupPhotos';
 
 class App extends Component {
     constructor(props) {
@@ -11,11 +11,14 @@ class App extends Component {
             isShowingFetcher: true,
             isShowingChunkSelection: false,
             isShowingPhotoUploader: false,
+            isShowingChunksWithPopupPhotos: false,
             codeSnippets: [],
-            newChunkedCodeSnippets: []
+            newChunkedCodeSnippets: [],
+            newChunksWithPhotos: []
         }
         this.handleTransitionToChunkSelection = this.handleTransitionToChunkSelection.bind(this);
         this.handleTransitionToPhotoSelection = this.handleTransitionToPhotoSelection.bind(this);
+        this.handleTransitionToShowingChunksWithPopupPhotos = this.handleTransitionToShowingChunksWithPopupPhotos.bind(this);
     }
 
     handleTransitionToChunkSelection(data) {
@@ -33,12 +36,17 @@ class App extends Component {
             isShowingPhotoUploader: true,
         })
     }
+
+    handleTransitionToShowingChunksWithPopupPhotos(data) {
+        this.setState({
+            newChunksWithPhotos: data,
+            isShowingPhotoUploader: false,
+            isShowingChunksWithPopupPhotos: true
+        })
+    }
     
     render() {
-        
-        // return <S3Uploader />
-        
-        
+                
         if (this.state.isShowingFetcher) {
             return (
                 <>
@@ -61,11 +69,21 @@ class App extends Component {
 
         if (this.state.isShowingPhotoUploader) {
             return (
-                <ChunkPhotoLinker chunkedSnippets={this.state.newChunkedCodeSnippets}/>
+                <ChunkPhotoLinker 
+                    chunkedSnippets={this.state.newChunkedCodeSnippets}
+                    onTransitionToShowingChunksWithPopupPhotos={this.handleTransitionToShowingChunksWithPopupPhotos}
+                />
             )
         }
 
-    
+        if (this.state.isShowingChunksWithPopupPhotos) {
+            return (
+                <ChunksWithPopupPhotos 
+                    newChunksWithPhotos={this.state.newChunksWithPhotos}
+                />
+            )
+        }
+
     }
 }
 

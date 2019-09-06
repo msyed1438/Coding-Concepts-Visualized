@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Container from 'react-bootstrap/Container';
+import Button from 'react-bootstrap/Button';
 import ChunkWithPhotoUpload from './ChunkWithPhotoUpload';
 
 
@@ -11,10 +12,10 @@ class ChunkPhotoLinker extends Component {
         }
 
         this.handlePhotoUpload = this.handlePhotoUpload.bind(this);
+        this.handleConfirmClick = this.handleConfirmClick.bind(this);
     }
 
     componentDidMount() {
-
         let chunkedSnippetsWithImgUrls = this.props.chunkedSnippets.map((chunkedSnippet) => {
             return (
                 {
@@ -25,7 +26,6 @@ class ChunkPhotoLinker extends Component {
         });
 
         this.setState({chunksWithPhotos: chunkedSnippetsWithImgUrls}); 
-       
         /* 
         ========================== EXAMPLE ==================================
         If the props going in were: 
@@ -52,6 +52,11 @@ class ChunkPhotoLinker extends Component {
         })
     }
 
+    handleConfirmClick(event) {
+        event.preventDefault();
+        this.props.onTransitionToShowingChunksWithPopupPhotos(this.state.chunksWithPhotos);
+    }
+
     render() {
         return (
             <Container>
@@ -66,6 +71,7 @@ class ChunkPhotoLinker extends Component {
                         />
                     )
                 })}
+               <Button variant="warning" onClick={this.handleConfirmClick}> Confirm your photo selections </Button>
             </Container>
         );
     }
