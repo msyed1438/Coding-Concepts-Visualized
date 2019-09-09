@@ -7,7 +7,8 @@ class IndividualChunkWithPhoto extends Component {
   render() {
       
     const imagePopup = () => {
-      return <img src={this.props.individualChunkWithPhoto.imgUrl} />;
+    //   return <img src={this.props.individualChunkWithPhoto.imgUrl} />;
+    return <img src="https://media.giphy.com/media/YGIpIZjgxL68w/giphy.gif" />;
     };
 
 
@@ -16,8 +17,8 @@ class IndividualChunkWithPhoto extends Component {
       //     {codeString}
       // </SyntaxHighlighter>
       <OverlayTrigger
-        placement="auto"
-        delay={{ show: 250, hide: 400 }}
+        placement="'left-start'"
+        delay={{ show: 200, hide: 20 }}
         overlay={imagePopup}
       >
         <SyntaxHighlighter language="javascript" style={tomorrowNight}>
