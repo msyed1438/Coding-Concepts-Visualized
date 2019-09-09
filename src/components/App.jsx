@@ -46,6 +46,7 @@ class App extends Component {
     }
     
     render() {
+        // return (<SamplePopup />);
                 
         if (this.state.isShowingFetcher) {
             return (

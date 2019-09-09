@@ -38,6 +38,7 @@
     "react-dom": "^16.8.6",
     "react-highlight": "^0.12.0",
     "react-hot-loader": "^4.12.10",
+    "react-image-tooltip": "^4.0.2",
     "react-images-upload": "^1.2.7",
     "react-syntax-highlighter": "^11.0.2",
     "request": "^2.88.0"

@@ -18,7 +18,7 @@ class IndividualChunkWithPhoto extends Component {
       // </SyntaxHighlighter>
       <OverlayTrigger
         placement="'left-start'"
-        delay={{ show: 200, hide: 20 }}
+        delay={{ show: 20, hide: 20 }}
         overlay={imagePopup}
       >
         <SyntaxHighlighter language="javascript" style={tomorrowNight}>
