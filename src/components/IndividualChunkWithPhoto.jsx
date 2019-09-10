@@ -2,24 +2,34 @@ import React, { Component } from "react";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { tomorrowNight } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Popover from 'react-bootstrap/Popover';
 
 class IndividualChunkWithPhoto extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isShowingShadow: false
+    }
+
+  }
   render() {
-      
-    const imagePopup = () => {
-    //   return <img src={this.props.individualChunkWithPhoto.imgUrl} />;
-    return <img src="https://media.giphy.com/media/YGIpIZjgxL68w/giphy.gif" />;
-    };
+    const popover = (
+      <Popover id="popover-basic">
+        <Popover.Title as="h3">Image concept</Popover.Title>
+        <Popover.Content>
+          {/* <img className="popup" src="https://media.giphy.com/media/YGIpIZjgxL68w/giphy.gif" /> */}
+          <img className="popup" src={this.props.individualChunkWithPhoto.imgUrl} />
+        </Popover.Content>
+      </Popover>
+    );
 
 
     return (
-      // <SyntaxHighlighter language="javascript" style={tomorrowNight}>
-      //     {codeString}
-      // </SyntaxHighlighter>
+
       <OverlayTrigger
-        placement="'left-start'"
+        placement="right"
         delay={{ show: 20, hide: 20 }}
-        overlay={imagePopup}
+        overlay={popover}
       >
         <SyntaxHighlighter language="javascript" style={tomorrowNight}>
           {this.props.individualChunkWithPhoto.chunk}
@@ -63,3 +73,4 @@ export default IndividualChunkWithPhoto;
 //     </SyntaxHighlighter>
 //   );
 // };
+

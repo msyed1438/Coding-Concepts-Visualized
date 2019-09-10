@@ -1,5 +1,5 @@
 const AWS = require('aws-sdk');
-const { accessKey, secretKey } = require('../awsConfig.js');
+const { accessKey, secretKey, S3_BUCKET } = require('../awsConfig.js');
 
 AWS.config.setPromisesDependency(require('bluebird'));
 AWS.config.update({
@@ -8,8 +8,6 @@ AWS.config.update({
     secretAccessKey: secretKey,
     signatureVersion: 'v4'
 });
-
-const S3_BUCKET = 'code-concept-photos'
 
 
 exports.sign_s3 = (req,res) => {

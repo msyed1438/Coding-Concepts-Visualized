@@ -15,7 +15,7 @@ app.use('/', express.static(path.join(__dirname, './../dist')))
 app.use(morgan('dev'));
 
 app.get('/jsfile/:remoteFilePath', fileGetter);
-app.post('/sign_s3', sign_s3);
+app.post('/sign_s3', sign_s3); //Creates a presigned URL to allow direct uplaod from client side to the S3 bucket 
 
 
 
