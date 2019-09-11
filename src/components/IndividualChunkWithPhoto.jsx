@@ -18,7 +18,7 @@ class IndividualChunkWithPhoto extends Component {
         <Popover.Title as="h3">Image concept</Popover.Title>
         <Popover.Content>
           {/* <img className="popup" src="https://media.giphy.com/media/YGIpIZjgxL68w/giphy.gif" /> */}
-          <img className="popup" src={this.props.individualChunkWithPhoto.imgUrl} />
+          <img className="popup" src={this.props.individualChunkWithPhoto.imgUrl || "https://media.giphy.com/media/YGIpIZjgxL68w/giphy.gif"} />
         </Popover.Content>
       </Popover>
     );
