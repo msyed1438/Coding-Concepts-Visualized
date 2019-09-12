@@ -1,12 +1,12 @@
-var express = require('express');
-var morgan = require('morgan');
-var bodyParser = require('body-parser');
-var {Mortgages} = require('../model/mongoDb.js');
-var path = require('path');
-var cors = require('cors');
-var mongoose = require('mongoose');
+const express = require('express');
+const morgan = require('morgan');
+const bodyParser = require('body-parser');
+const {Mortgages} = require('../model/mongoDb.js');
+const path = require('path');
+const cors = require('cors');
+const mongoose = require('mongoose');
 
-var app = express();
+const app = express();
 
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended: true}));
@@ -37,7 +37,7 @@ app.get('/api/price/:priceId', function(req, res) {
 
 
 
-var port = process.env.PORT || 3008;
+const port = process.env.PORT || 3008;
 
 app.listen(port, function() {
     console.log(`Server is listening on port: ${port}`);
