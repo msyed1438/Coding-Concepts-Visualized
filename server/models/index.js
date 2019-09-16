@@ -1,18 +1,14 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/snippets', {useNewUrlParser: true});
+var url = 'mongodb://localhost:27017/code-snippets';
 
-var db = mongoose.connection;
-
-db.on('error', console.error.bind(console, 'connection error:'));
-
-db.once('open', function() {
-
-    console.log('Database connected successfully at mongodb://localhost/snippets');
-
-    var snippetSchema = new mongoose.Schema({
-        title: String,
-        author: String,
-        description: String,
-        chunks: []
-      });
+var mortgagesSchema = new mongoose.Schema({
+    id: {type: Number, index: true},
+    title: {type: String},
+    description: {type: String},
+    author: {type: String} 
 });
+
+mongoose.connect(url, {useNewUrlParser: false});
+
+module.exports.Mortgages = mongoose.model('code-snippets', mortgagesSchema);
+

@@ -14,12 +14,16 @@ class App extends Component {
             isShowingChunksWithPopupPhotos: false,
             codeSnippets: [],
             newChunkedCodeSnippets: [],
-            newChunksWithPhotos: []
+            newChunksWithPhotos: [] // <--- This is the final data 
+                                    //e.g: 
+                                    // [{chunk: 'x = 10\nreturn x + 2', imgUrl: '<some S3 link>'}, {chunk: 'console.log('Hello world!')', imgUrl: '<some S3 link>'}]
         }
         this.handleTransitionToChunkSelection = this.handleTransitionToChunkSelection.bind(this);
         this.handleTransitionToPhotoSelection = this.handleTransitionToPhotoSelection.bind(this);
         this.handleTransitionToShowingChunksWithPopupPhotos = this.handleTransitionToShowingChunksWithPopupPhotos.bind(this);
     }
+
+    //Chunks are strings of coding snippets that are either individual lines or CHUNKS of lines joined with '/n' characters
 
     handleTransitionToChunkSelection(data) {
         this.setState({
@@ -28,6 +32,7 @@ class App extends Component {
             codeSnippets: data
         })
     }
+
 
     handleTransitionToPhotoSelection(data) {
         this.setState({
