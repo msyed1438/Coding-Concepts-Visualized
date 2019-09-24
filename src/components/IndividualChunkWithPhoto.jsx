@@ -27,7 +27,7 @@ class IndividualChunkWithPhoto extends Component {
 
       <OverlayTrigger
         placement="right"
-        delay={{ show: 20, hide: 20 }}
+        delay={{ show: 1, hide: 20 }}
         overlay={popover}
         className="snippet"
       >

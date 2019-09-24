@@ -11,5 +11,5 @@ var codeSnippetsSchema = new mongoose.Schema({
 
 mongoose.connect(url, {useNewUrlParser: false});
 
-module.exports.Mortgages = mongoose.model('code-snippets', mortgagesSchema);
+module.exports.Mortgages = mongoose.model('code-snippets', codeSnippetsSchema);
 

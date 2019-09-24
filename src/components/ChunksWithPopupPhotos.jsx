@@ -9,9 +9,11 @@ class ChunksWithPopupPhotos extends Component {
 
             
             <div>
-                {this.props.newChunksWithPhotos.map((individualChunkWithPhoto, index) => {
+                <div className="chunks-with-photos">
+                    {this.props.newChunksWithPhotos.map((individualChunkWithPhoto, index) => {
                         return <IndividualChunkWithPhoto key={index} individualChunkWithPhoto={individualChunkWithPhoto}/> 
                     })}
+                </div>
             </div>
             
             
