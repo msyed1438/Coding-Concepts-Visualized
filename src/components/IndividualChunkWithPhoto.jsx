@@ -17,7 +17,6 @@ class IndividualChunkWithPhoto extends Component {
       <Popover id="popover-basic">
         <Popover.Title as="h3">Image concept</Popover.Title>
         <Popover.Content>
-          {/* <img className="popup" src="https://media.giphy.com/media/YGIpIZjgxL68w/giphy.gif" /> */}
           <img className="popup" src={this.props.individualChunkWithPhoto.imgUrl || "https://media.giphy.com/media/YGIpIZjgxL68w/giphy.gif"} />
         </Popover.Content>
       </Popover>
@@ -30,8 +29,9 @@ class IndividualChunkWithPhoto extends Component {
         placement="right"
         delay={{ show: 20, hide: 20 }}
         overlay={popover}
+        className="snippet"
       >
-        <SyntaxHighlighter language="javascript" style={tomorrowNight}>
+        <SyntaxHighlighter language="javascript" style={tomorrowNight} className="individual-chunk-with-photo">
           {this.props.individualChunkWithPhoto.chunk}
         </SyntaxHighlighter>
       </OverlayTrigger>
