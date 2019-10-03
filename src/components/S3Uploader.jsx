@@ -23,14 +23,14 @@ class S3Uploader extends Component {
     let fileParts = this.uploadInput.files[0].name.split('.');
     let fileName = fileParts[0];
     let fileType = fileParts[1];
-    console.log("Preparing the upload");
-    console.log('Here are the files: ', file);
+    // console.log("Preparing the upload");
+    // console.log('Here are the files: ', file);
     axios.post("/sign_s3", {
       fileName : fileName,
       fileType : fileType
     })
     .then(response => {
-      console.log('Response from sign_s3 endpoint: ', response)
+      // console.log('Response from sign_s3 endpoint: ', response)
       var returnData = response.data.data.returnData;
       console.log('This is the returnData: ', returnData);
       var signedRequest = returnData.signedRequest;
@@ -42,7 +42,6 @@ class S3Uploader extends Component {
       var options = {
         headers: {
           'Content-Type': fileType
-          // 'x-amz-acl': 'public-read'
         }
       };
       axios.put(signedRequest,file,options)
@@ -77,3 +76,7 @@ class S3Uploader extends Component {
   }
 }
 export default S3Uploader;
+
+
+
+

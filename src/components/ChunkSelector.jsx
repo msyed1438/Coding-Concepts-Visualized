@@ -80,7 +80,7 @@ class ChunkSelector extends Component {
     render() {
         return (
             
-            <Container>
+            <Container className="chunk-selector">
                 <h4>Group your lines of code!</h4> 
                 <p> Reset selections? <Button variant='warning' onClick={this.handleResetClick}>Reset</Button></p>
                 {this.state.snippets.map((snippet, index) => {
@@ -88,7 +88,7 @@ class ChunkSelector extends Component {
                         <Chunk 
                             key={index}
                             id={index}
-                            className="border justify-content-between"
+                            className="border justify-content-between chunk-selection-snippets"
                             snippet={snippet}
                             isPickingInitialPartOfChunk={this.state.isPickingInitialPartOfChunk}
                             handleChunkClick={this.handleChunkClick}

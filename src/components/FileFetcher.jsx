@@ -6,7 +6,6 @@ import Jumbotron from 'react-bootstrap/Jumbotron';
 import axios from 'axios';
 import CodingSnippets from './CodingSnippets';
 
-
 class FileFetcher extends Component {
 
     constructor(props) {

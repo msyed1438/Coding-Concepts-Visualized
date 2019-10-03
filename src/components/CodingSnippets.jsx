@@ -27,15 +27,15 @@ class CodingSnippets extends Component {
 
     render() {
         return (
-            <>
-            <div className="searched-snippets-header">
-                <h4>Here's the file that you searched for!</h4>
-                <span><h6>Would you like to confirm this selection ↓ ?</h6><Button 
-                        variant="success" 
-                        onClick={this.handleConfirmClick.bind(this)}
-                > Confirm </Button></span>    
-            </div>
+
             <Container className="searched-snippets">
+                <div className="searched-snippets-header">
+                    <h4>Here's the file that you searched for!</h4>
+                    <span><h6>Would you like to confirm this selection ↓ ?</h6><Button 
+                            variant="success" 
+                            onClick={this.handleConfirmClick.bind(this)}
+                    > Confirm </Button></span>    
+                </div>
                 <div>
                     
                     {this.props.snippets.map((snippet, index) => {
@@ -43,7 +43,7 @@ class CodingSnippets extends Component {
                     })}
                 </div>
             </Container>
-            </>
+    
         );
     }
 }

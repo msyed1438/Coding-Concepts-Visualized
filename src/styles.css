@@ -6,11 +6,15 @@ body {
 }
 
 .chunks-with-photos {
-    border-color: rgb(29, 196, 202);
+    border-color: rgb(91, 89, 199);
     border-style: solid;
     border-width: 8px;
     border-radius: 7px;
     margin: 10px;
+}
+
+.chunk-selection-snippets {
+    color: red;
 }
 
 .individual-chunk-with-photo {
@@ -31,7 +35,7 @@ body {
 }
 
 .searched-snippets {
-    margin-top: 50px;
+    margin-top: 20px;
     border-style: solid;
     border-radius: 10px;
     border-width: 5px;
@@ -42,6 +46,11 @@ body {
 }
 
 .searched-snippets-header {
-    padding-top: 25px;
+    justify-content: center;
+    padding-left: 10px;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    margin-bottom: 20px;
     background-color: rgb(192, 209, 240);
+    border: 5px solid;
 }
