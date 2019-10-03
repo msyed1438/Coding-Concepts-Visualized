@@ -5,7 +5,7 @@ An app that takes in a raw file URL and allows you to create photos that pop up 
 Setup: 
 With Node 8.0+ installed: 
 `npm install`
-`npm run build`
-`npm start`
+`npm run build-dev`
+`npm run server-dev`
 
 Then go to localhost:3005
