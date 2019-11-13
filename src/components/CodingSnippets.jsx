@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
-import Highlight from 'react-highlight'
 
 
 class CodingSnippets extends Component {
+
     constructor(props) {
         super(props);
         this.state = {
@@ -27,20 +27,21 @@ class CodingSnippets extends Component {
 
     render() {
         return (
+            
+            //TODO: Make rendered snippets with code syntax highlight 
 
             <Container className="searched-snippets">
                 <div className="searched-snippets-header">
                     <h4>Here's the file that you searched for!</h4>
-                    <span><h6>Would you like to confirm this selection ↓ ?</h6><Button 
+                    <span><h6>Would you like to confirm this selection </h6><Button 
                             variant="success" 
                             onClick={this.handleConfirmClick.bind(this)}
                     > Confirm </Button></span>    
                 </div>
                 <div>
-                    
                     {this.props.snippets.map((snippet, index) => {
                         return <Row key={index}><pre>{snippet}</pre></Row>
-                    })}
+                    })} 
                 </div>
             </Container>
     

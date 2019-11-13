@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import IndividualChunkWithPhoto from './IndividualChunkWithPhoto';
 import Jumbotron from 'react-bootstrap/Jumbotron';
+import Container from 'react-bootstrap/Container';
 
 
 class ChunksWithPopupPhotos extends Component {
@@ -23,18 +24,10 @@ class ChunksWithPopupPhotos extends Component {
                         return <IndividualChunkWithPhoto key={index} individualChunkWithPhoto={individualChunkWithPhoto}/> 
                     })}
                 </div>
-                {/* <form>
-                    First name:<br>
-                    <input type="text" name="firstname"/><br>
-                    Last name:<br>
-                    <input type="text" name="lastname"/>
-                </form> */}
-                <form>
-                    <input type="text" name="title" value="title"/>
-                    <input type="text" name="description" />
-                    <input type="text" name="author" />
-                </form>
-            </div>
+                <Jumbotron />
+              
+              
+            </div> //knkbjk
             
             
         );

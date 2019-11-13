@@ -46,7 +46,7 @@ class FileFetcher extends Component {
     render() {
 
         return (
-            <Container className="">
+            <Container>
                 <Jumbotron>
                     <h3> File Fetcher </h3>
                     <p> Here's a file fetcher! Paste in any raw file URL to get it split into lines</p>
@@ -70,6 +70,7 @@ class FileFetcher extends Component {
                 </Form>
                 {this.state.isShowingSnippets 
                     ? <CodingSnippets 
+                        className="snippets"
                         snippets={this.state.codeSnippets} 
                         onTransitionToChunkSelection={this.props.onTransitionToChunkSelection}
                         /> 

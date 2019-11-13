@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+//TODO: Refactor the S3 Uploader component 
+
 class S3Uploader extends Component {
   constructor(props){
     super(props);

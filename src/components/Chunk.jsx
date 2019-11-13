@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
-import Highlight from 'react-highlight'
 
 
 class Chunk extends Component {

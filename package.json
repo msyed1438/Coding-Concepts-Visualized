@@ -9,7 +9,8 @@
     "build-dev": "webpack -d -w --mode development",
     "build-prod": "webpack -p --mode production",
     "start": "webpack-dev-server --hot --mode development",
-    "server-dev": "nodemon server/index.js"
+    "server-dev": "nodemon server/index.js",
+    "storybook": "start-storybook"
   },
   "repository": {
     "type": "git",
@@ -41,9 +42,10 @@
     "request": "^2.88.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.5.5",
+    "@babel/core": "^7.6.2",
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
+    "@storybook/react": "^5.2.1",
     "babel-loader": "^8.0.6",
     "css-loader": "^3.1.0",
     "file-loader": "^4.2.0",

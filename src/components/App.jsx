@@ -51,16 +51,15 @@ class App extends Component {
     }
     
     render() {
-        // return (<SamplePopup />);
                 
         if (this.state.isShowingFetcher) {
             return (
-                <>
-                <h1 className="text-center">Coding Visualizer!</h1>
-                <FileFetcher 
-                    onTransitionToChunkSelection={this.handleTransitionToChunkSelection}
-                />
-                </>
+                <div>
+                    <h1 className="text-center test">Coding Visualizer!</h1>
+                    <FileFetcher 
+                        onTransitionToChunkSelection={this.handleTransitionToChunkSelection}
+                    />
+                </div>
             );
         }
 
