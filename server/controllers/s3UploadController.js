@@ -1,5 +1,5 @@
 const AWS = require('aws-sdk');
-const { accessKey, secretKey, S3_BUCKET } = require('../awsConfig.js');
+const { accessKey, secretKey, S3_BUCKET } = require('../config/awsConfig.js');
 
 AWS.config.setPromisesDependency(require('bluebird'));
 AWS.config.update({
